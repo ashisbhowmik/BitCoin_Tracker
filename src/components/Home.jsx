@@ -7,9 +7,6 @@ import Currencies from "./Currencies";
 const { Title } = Typography;
 
 const Home = () => {
-  // const { data } = useGetCryptosQuery();
-  // // const globalStats = data?.data?.stats;
-  // // console.log(globalStats);
   const [getstats, setStats] = useState("loading...");
 
   useEffect(() => {

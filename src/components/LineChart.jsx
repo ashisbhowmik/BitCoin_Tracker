@@ -6,9 +6,6 @@ import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 const LineChart = ({ coinHistory, currentPrice, coinName, coinChange }) => {
   const coinPrice = [];
   const coinTimestamp = [];
-  // for (let i = 0; i < coinHistory?.history?.size; i += 1) {
-  //   coinPrice.push(coinHistory?.history[i].price);
-  // }
   {
     coinHistory?.history?.map((elem, idx) => coinPrice.push(elem.price));
   }

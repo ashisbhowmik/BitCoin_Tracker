@@ -9,7 +9,6 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import millify from "millify";
-import Loader from "./Loader";
 const { Meta } = Card;
 
 const Currencies = ({ simplified }) => {
