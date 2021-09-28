@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.app {
+  display: flex;
+  overflow: hidden;
+}
+.navbar {
+  flex: 0.2;
+  background-color: rgb(0, 21, 41);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  flex: 0.8;
+  width: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.routes {
+  padding: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-container {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  margin: 0px;
+  background-color: rgb(0, 21, 41);
+}
+.nav-logo {
+  display: flex;
+  margin: 10px;
+}
+.footer {
+  background-color: #001529;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+}
+.coin-heading-cotainer {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+}
+.select-timeperiod {
+  width: 190px;
+}
+.info-container {
+  display: flex;
+}
+.heading-info {
+  padding: 17px;
+}
+.under_inf {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+.under1-dif {
+  padding: 8px;
+}
+.price-chart {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 800px) {
+  .info-container {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  .price-chart {
+    flex-direction: column;
   }
 }
+/* @media screen and (max-width: 1300px) {
+  .main {
+    margin-left: 50px;
+  }
+}
+@media screen and (max-width: 1170px) {
+  .main {
+    margin-left: 50px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .main {
+    margin-left: 100px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .app {
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .navbar {
+    flex: 1;
+  }
+  .main {
+    flex: 1;
+    margin-top: 90px;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+}
+.nav-container {
+  height: 8vh;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--bgSecondary);
+} */
