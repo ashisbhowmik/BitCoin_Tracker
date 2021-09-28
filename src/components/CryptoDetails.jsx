@@ -42,9 +42,9 @@ const CryptoDetails = () => {
       setChange(resData?.data?.change);
     };
     fetchCoinHistory();
-  }, []);
+  }, [selectVal]);
 
-  const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
+  const time = ["24h", "7d", "30d", "1y", "5y"];
   const stats = [
     {
       title: "Price to USD",
@@ -104,12 +104,13 @@ const CryptoDetails = () => {
         </p>
       </Col>
       <Select
-        defaultValue="7d"
+        defaultValue="24h"
         className="select-timeperiod"
         placeholder="Select TimePeriod"
+        onChange={(value) => setselectVal(value)}
       >
-        {time.map((time, idx) => {
-          return <Option key={idx}>{time}</Option>;
+        {time.map((time) => {
+          return <Option key={time}>{time}</Option>;
         })}
       </Select>
       <LineChart

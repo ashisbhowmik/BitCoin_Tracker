@@ -14,7 +14,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName, coinChange }) => {
   }
   {
     coinHistory?.history?.map((elem, idx) =>
-      coinTimestamp.push(elem.timestamp)
+      coinTimestamp.push(new Date(elem.timestamp).toLocaleDateString())
     );
   }
 
@@ -54,8 +54,8 @@ const LineChart = ({ coinHistory, currentPrice, coinName, coinChange }) => {
               value={coinChange}
               valueStyle={
                 coinChange > 0
-                  ? { color: "#3f8600", fontSize: 25, fontWeight: 400 }
-                  : { color: "#cf1322", fontSize: 19, fontWeight: 400 }
+                  ? { color: "#3f8600", fontSize: 25, fontWeight: 900 }
+                  : { color: "#cf1322", fontSize: 19, fontWeight: 900 }
               }
               prefix={
                 coinChange > 0 ? <ArrowUpOutlined /> : <ArrowDownOutlined />
