@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Currencies from "./components/Currencies";
 import CryptoDetails from "./components/CryptoDetails";
 import Exchanges from "./components/Exchanges";
+import Error from "./components/Error";
 import { Layout, Space, Typography } from "antd";
 import "./App.css";
 
@@ -34,7 +35,10 @@ function App() {
                   <News />
                 </Route>
                 <Route exact path="/crypto/:coinId">
-                  <CryptoDetails id />
+                  <CryptoDetails />
+                </Route>
+                <Route path="">
+                  <Error />
                 </Route>
               </Switch>
             </div>

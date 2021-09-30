@@ -66,8 +66,8 @@ const Currencies = ({ simplified }) => {
                       value={coin.change}
                       valueStyle={
                         coin.change > 0
-                          ? { color: "#3f8600", fontSize: 25, fontWeight: 400 }
-                          : { color: "#cf1322", fontSize: 19, fontWeight: 400 }
+                          ? { color: "#3f8600", fontSize: 25, fontWeight: 600 }
+                          : { color: "#cf1322", fontSize: 19, fontWeight: 600 }
                       }
                       prefix={
                         coin.change > 0 ? (
