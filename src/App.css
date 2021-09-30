@@ -29,6 +29,7 @@
 .nav-logo {
   display: flex;
   margin: 10px;
+  position: relative;
 }
 .footer {
   background-color: #001529;
@@ -69,49 +70,48 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
-@media screen and (max-width: 800px) {
-  .info-container {
-    flex-direction: column;
-  }
-  .price-chart {
-    flex-direction: column;
-  }
-}
-/* @media screen and (max-width: 1300px) {
-  .main {
-    margin-left: 50px;
-  }
-}
-@media screen and (max-width: 1170px) {
-  .main {
-    margin-left: 50px;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .main {
-    margin-left: 100px;
-  }
+.menu-control-container {
+  position: relative !important;
+  /* display: none !important; */
+  top: 12px !important;
+  right: 10px !important;
+  margin-left: 20px;
+  font-size: 1rem !important;
+  border: none !important;
 }
 @media screen and (max-width: 800px) {
   .app {
     flex-direction: column;
     overflow: hidden;
   }
-  .navbar {
-    flex: 1;
+  .info-container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .main {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .app {
+    flex-direction: column;
+    overflow: hidden;
   }
   .main {
     flex: 1;
-    margin-top: 90px;
+    margin-top: 73px;
     margin-left: 0px;
-    margin-right: 10px;
+    margin-right: 9px;
+  }
+  .nav-container {
+    height: 8vh;
+    position: fixed;
+    width: 20%;
+    z-index: 100;
+    background-color: var(--bgSecondary);
   }
 }
-.nav-container {
-  height: 8vh;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  background-color: var(--bgSecondary);
-} */
