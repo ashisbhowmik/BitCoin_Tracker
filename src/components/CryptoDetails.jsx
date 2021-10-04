@@ -31,7 +31,7 @@ const CryptoDetails = () => {
       setCoin(resData?.data?.coin);
     };
     fetchData();
-  }, []);
+  }, [coinId]);
 
   useEffect(() => {
     const url = `https://coinranking1.p.rapidapi.com/coin/${coinId}/history/${selectVal}/?rapidapi-key=${process.env.REACT_APP_COINRANKING_API_KEY}`;
@@ -42,7 +42,7 @@ const CryptoDetails = () => {
       setChange(resData?.data?.change);
     };
     fetchCoinHistory();
-  }, [selectVal]);
+  }, [selectVal, coinId]);
 
   const time = ["24h", "7d", "30d", "1y", "5y"];
   const stats = [

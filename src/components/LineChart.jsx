@@ -6,14 +6,10 @@ import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 const LineChart = ({ coinHistory, currentPrice, coinName, coinChange }) => {
   const coinPrice = [];
   const coinTimestamp = [];
-  {
-    coinHistory?.history?.map((elem, idx) => coinPrice.push(elem.price));
-  }
-  {
-    coinHistory?.history?.map((elem, idx) =>
-      coinTimestamp.push(new Date(elem.timestamp).toLocaleDateString())
-    );
-  }
+  coinHistory?.history?.map((elem, idx) => coinPrice.push(elem.price));
+  coinHistory?.history?.map((elem, idx) =>
+    coinTimestamp.push(new Date(elem.timestamp).toLocaleDateString())
+  );
 
   const data = {
     labels: coinTimestamp,

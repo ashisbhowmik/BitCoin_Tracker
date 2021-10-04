@@ -13,7 +13,7 @@ const { Meta } = Card;
 
 const Currencies = ({ simplified }) => {
   const [getcoins, setCoins] = useState([]);
-  const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(request.coins);
@@ -34,7 +34,7 @@ const Currencies = ({ simplified }) => {
               marginBottom: 13,
               borderRadius: 6,
             }}
-            onChange={(e) => setInput(e.target.value.toLocaleLowerCase())}
+            // onChange={(e) => setInput(e.target.value.toLocaleLowerCase())}
           />
         </div>
       )}
