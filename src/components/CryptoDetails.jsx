@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Typography, Col, Row, Select } from "antd";
+import { Typography, Col, Row, Select, Avatar, Card } from "antd";
 import { useParams } from "react-router-dom";
 import LineChart from "./LineChart";
 import {
@@ -14,9 +14,9 @@ import {
 } from "@ant-design/icons";
 const { Title, Text } = Typography;
 const { Option } = Select;
+const { Meta } = Card;
 
 const CryptoDetails = () => {
-  const API_KEY = "825a17dae0msh056e31adaf9881ap1ac206jsnef9c8fa269fd";
   const { coinId } = useParams();
   const [coin, setCoin] = useState({});
   const [selectVal, setselectVal] = useState("24h");
@@ -24,7 +24,7 @@ const CryptoDetails = () => {
   const [change, setChange] = useState();
 
   useEffect(() => {
-    const url = `https://coinranking1.p.rapidapi.com/coin/${coinId}/?rapidapi-key=${API_KEY}`;
+    const url = `https://coinranking1.p.rapidapi.com/coin/${coinId}/?rapidapi-key=${process.env.REACT_APP_COINRANKING_API_KEY}`;
     const fetchData = async () => {
       const res = await fetch(url);
       const resData = await res.json();
@@ -34,7 +34,7 @@ const CryptoDetails = () => {
   }, []);
 
   useEffect(() => {
-    const url = `https://coinranking1.p.rapidapi.com/coin/${coinId}/history/${selectVal}/?rapidapi-key=${API_KEY}`;
+    const url = `https://coinranking1.p.rapidapi.com/coin/${coinId}/history/${selectVal}/?rapidapi-key=${process.env.REACT_APP_COINRANKING_API_KEY}`;
     const fetchCoinHistory = async () => {
       const res = await fetch(url);
       const resData = await res.json();
@@ -59,7 +59,7 @@ const CryptoDetails = () => {
     },
     {
       title: "Market Cap",
-      value: `$ ${coin.marketCap}`,
+      value: `₹ ${coin.marketCap}`,
       icon: <DollarCircleOutlined />,
     },
   ];
@@ -82,12 +82,12 @@ const CryptoDetails = () => {
     },
     {
       title: "Total Supply",
-      value: `$ ${coin.totalSupply}`,
+      value: `₹ ${coin.totalSupply}`,
       icon: <ExclamationCircleOutlined />,
     },
     {
       title: "Circulating Supply",
-      value: `$ ${coin.circulatingSupply}`,
+      value: `₹ ${coin.circulatingSupply}`,
       icon: <ExclamationCircleOutlined />,
     },
   ];
@@ -95,6 +95,9 @@ const CryptoDetails = () => {
   return (
     <Col>
       <Col className="coin-heading-cotainer">
+        <span>
+          <Meta avatar={<Avatar src={coin.iconUrl} />} />
+        </span>
         <Title level={3} style={{ color: "green", fontWeight: 700 }}>
           {coin.name} ({coin.slug}) Price
         </Title>

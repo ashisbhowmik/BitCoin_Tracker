@@ -4,6 +4,7 @@ import axios from "../axios";
 import request from "../request";
 import { Link } from "react-router-dom";
 import Currencies from "./Currencies";
+import News from "./News";
 const { Title } = Typography;
 
 const Home = () => {
@@ -43,7 +44,6 @@ const Home = () => {
         <h3
           style={{
             fontWeight: 500,
-
             cursor: "pointer",
             color: "blue",
           }}
@@ -53,6 +53,27 @@ const Home = () => {
       </div>
 
       <Currencies simplified />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: 12,
+        }}
+      >
+        <Title s level={3}>
+          Get Latest News
+        </Title>
+        <h3
+          style={{
+            fontWeight: 500,
+            cursor: "pointer",
+            color: "blue",
+          }}
+        >
+          <Link to="/currencies">Show More</Link>
+        </h3>
+      </div>
+      <News simplified />
     </div>
   );
 };

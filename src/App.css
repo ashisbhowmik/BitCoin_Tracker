@@ -79,6 +79,30 @@
   font-size: 1rem !important;
   border: none !important;
 }
+
+.news-image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.news-image-container .news-title {
+  margin-right: 10px;
+  font-size: 19px;
+}
+.news-image-container img {
+  height: 89px;
+  width: 90px;
+  border-radius: 14px;
+  margin-right: 19px;
+}
+.provider-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.provider-name {
+  margin-left: 7px;
+}
 @media screen and (max-width: 800px) {
   .app {
     flex-direction: column;

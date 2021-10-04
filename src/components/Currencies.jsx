@@ -14,17 +14,6 @@ const { Meta } = Card;
 const Currencies = ({ simplified }) => {
   const [getcoins, setCoins] = useState([]);
   const [input, setInput] = useState("");
-
-  // useEffect for Searching the setCoins
-  // useEffect(() => {
-  //   setCoins(getcoins?.data?.data?.coin);
-  //   const filterSearchData = getcoins?.data?.data?.coin.filter((item) => {
-  //     item.name.toLowerCase().includes(input);
-  //   });
-  //   setCoins(filterSearchData);
-  // }, [input, getcoins]);
-
-  // useEffect for get the endpoint's data white the page is reloding
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(request.coins);
@@ -32,6 +21,7 @@ const Currencies = ({ simplified }) => {
     };
     fetchData();
   }, []);
+  // console.log(process.env);
   return (
     <>
       {!simplified && (
@@ -48,43 +38,101 @@ const Currencies = ({ simplified }) => {
           />
         </div>
       )}
-      <Row gutter={[32, 32]}>
-        {getcoins.map((coin, idx) => {
-          return (
-            <Col xs={24} sm={12} lg={6} key={coin.id} style={{ padding: 7 }}>
-              <Link to={`/crypto/${coin.id}`}>
-                <Card hoverable>
-                  <Meta
-                    title={coin.name}
-                    avatar={<Avatar src={coin.iconUrl} />}
-                  />
-                  <br />
-                  <p>price : {millify(coin.price)}</p>
-                  <p>MarketCap : {millify(coin.marketCap)}</p>
-                  <span>
-                    <Statistic
-                      value={coin.change}
-                      valueStyle={
-                        coin.change > 0
-                          ? { color: "#3f8600", fontSize: 25, fontWeight: 600 }
-                          : { color: "#cf1322", fontSize: 19, fontWeight: 600 }
-                      }
-                      prefix={
-                        coin.change > 0 ? (
-                          <ArrowUpOutlined />
-                        ) : (
-                          <ArrowDownOutlined />
-                        )
-                      }
-                      suffix="%"
+      {simplified ? (
+        <Row gutter={[32, 32]}>
+          {getcoins.splice(0, 10).map((coin) => {
+            return (
+              <Col xs={24} sm={12} lg={6} key={coin.id} style={{ padding: 7 }}>
+                <Link to={`/crypto/${coin.id}`}>
+                  <Card hoverable>
+                    <Meta
+                      title={coin.name}
+                      avatar={<Avatar src={coin.iconUrl} />}
                     />
-                  </span>
-                </Card>
-              </Link>
-            </Col>
-          );
-        })}
-      </Row>
+                    <br />
+                    <p>price : {millify(coin.price)}</p>
+                    <p>MarketCap : {millify(coin.marketCap)}</p>
+                    <span>
+                      <Statistic
+                        value={coin.change}
+                        valueStyle={
+                          coin.change > 0
+                            ? {
+                                color: "#3f8600",
+                                fontSize: 25,
+                                fontWeight: 600,
+                              }
+                            : {
+                                color: "#cf1322",
+                                fontSize: 19,
+                                fontWeight: 600,
+                              }
+                        }
+                        p
+                        prefix={
+                          coin.change > 0 ? (
+                            <ArrowUpOutlined />
+                          ) : (
+                            <ArrowDownOutlined />
+                          )
+                        }
+                        suffix="%"
+                      />
+                    </span>
+                  </Card>
+                </Link>
+              </Col>
+            );
+          })}
+        </Row>
+      ) : (
+        <Row gutter={[32, 32]}>
+          {getcoins.map((coin) => {
+            return (
+              <Col xs={24} sm={12} lg={6} key={coin.id} style={{ padding: 7 }}>
+                <Link to={`/crypto/${coin.id}`}>
+                  <Card hoverable>
+                    <Meta
+                      title={coin.name}
+                      avatar={<Avatar src={coin.iconUrl} />}
+                    />
+                    <br />
+                    <p>price : {millify(coin.price)}</p>
+                    <p>MarketCap : {millify(coin.marketCap)}</p>
+                    <span>
+                      <Statistic
+                        value={coin.change}
+                        valueStyle={
+                          coin.change > 0
+                            ? {
+                                color: "#3f8600",
+                                fontSize: 25,
+                                fontWeight: 600,
+                              }
+                            : {
+                                color: "#cf1322",
+                                fontSize: 19,
+                                fontWeight: 600,
+                              }
+                        }
+                        p
+                        prefix={
+                          coin.change > 0 ? (
+                            <ArrowUpOutlined />
+                          ) : (
+                            <ArrowDownOutlined />
+                          )
+                        }
+                        suffix="%"
+                      />
+                    </span>
+                  </Card>
+                </Link>
+              </Col>
+            );
+          })}
+        </Row>
+      )}
     </>
   );
 };
