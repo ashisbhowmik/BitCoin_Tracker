@@ -21,7 +21,6 @@ const Currencies = ({ simplified }) => {
     };
     fetchData();
   }, []);
-  // console.log(process.env);
   return (
     <>
       {!simplified && (

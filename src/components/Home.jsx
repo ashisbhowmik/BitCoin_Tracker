@@ -70,7 +70,7 @@ const Home = () => {
             color: "blue",
           }}
         >
-          <Link to="/currencies">Show More</Link>
+          <Link to="/news">Show More</Link>
         </h3>
       </div>
       <News simplified />

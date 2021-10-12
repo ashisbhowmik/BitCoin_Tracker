@@ -103,6 +103,12 @@
 .provider-name {
   margin-left: 7px;
 }
+
+.select-news {
+  width: 300px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 800px) {
   .app {
     flex-direction: column;
